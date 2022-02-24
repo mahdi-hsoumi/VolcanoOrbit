@@ -14,6 +14,8 @@ export default class Orbit {
         this.resource = this.resources.items.orbitModel
 
         this.setModel()
+
+
     }
 
     setModel() {
