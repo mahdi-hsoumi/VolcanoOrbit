@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <canvas ref="webgl"></canvas>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import Experience from "../Experience/Experience.js";
+import { ref, onMounted } from "vue";
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+  components: {},
+
+  setup() {
+    const webgl = ref(null);
+    onMounted(() => {
+      if (webgl.value) new Experience(webgl.value);
+    });
+    return { webgl };
   },
 };
 </script>
+<style>
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+</style>
